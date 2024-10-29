@@ -1,0 +1,34 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block title %}Eventory{% endblock %}
+
+{% block extra_css %}
+    <!-- Подключаем уникальный CSS для главной страницы -->
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>EVENTORY</h1>
+<!--    <form action="/login" method="POST">-->
+    <form class="HomeForm" method="POST">
+        {% csrf_token %}
+        <label for="username">Введите Email:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        {% if errors_incorrect %}
+            <div class="error-message">
+                {{ errors_incorrect }}
+            </div>
+        {% endif %}
+
+        <button type="submit">Вход</button>
+        <p class="registr"><a href="{% url 'user_registration' %}">Зарегистрироваться</a></p>
+    </form>
+    <a href="{% url 'about' %}"><button type="submit" class="btn">О нас</button></a>
+
+{% endblock %}
+

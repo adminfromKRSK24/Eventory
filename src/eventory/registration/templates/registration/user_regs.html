@@ -1,0 +1,71 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}User registration{% endblock %}
+{% load static %}
+{% block extra_css %}
+    <!-- Подключаем уникальный CSS для главной страницы -->
+    <link rel="stylesheet" href="{% static 'registration/css/user_regs.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/interest_list.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="user_regs_h1">Регистрация</h1>
+    <form class="registrationForm" method="POST">
+        {% csrf_token %}
+            <label for="surname">Фамилия:</label>
+            <input type="text" id="surname" name="surname" required>
+
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" name="phone" pattern="\+7\d{10}" placeholder="+7XXXXXXXXXX" required>
+
+            <label for="email">Почта:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="password_repeat">Повторите пароль:</label>
+            <input type="password" id="password_repeat" name="password_repeat" required>
+            {% if error_passw_repeat %}
+                <div class="error-message" style="color: red;">
+                    {{ error_passw_repeat }}
+                </div>
+            {% endif %}
+
+            <div class="dropdown">
+                <div class="selected-items"><label for="tags">Мои интересы</label></div>
+                <div class="dropdown-content">
+                    {% for interest in interest_list %}
+                        <label><input type="checkbox" name="tags[]" value="{{ interest }}">{{ interest }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <button type="submit" class="btn_register">Зарегистрироваться</button>
+            <p class="registr"><a href="{% url 'home' %}">На главную</a></p>
+    </form>
+<!--    <a href="{% url 'home' %}"><button type="submit" class="btn">На главную</button></a>-->
+
+{% endblock %}
+
+<script>
+    // Обработчик событий для обновления выбранных элементов
+    const checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+    const selectedItemsDiv = document.querySelector('.selected-items');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateSelectedItems);
+    });
+
+    function updateSelectedItems() {
+        const selectedItems = Array.from(checkboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+
+        selectedItemsDiv.textContent = selectedItems.length > 0 ? selectedItems.join(', ') : 'Select options';
+    }
+</script>

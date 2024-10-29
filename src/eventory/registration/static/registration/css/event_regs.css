@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.h_registration_event {
+    margin-top: 30px;
+    font-size: 26px;
+}
+
+.EventForm {
+    margin: 0px;
+    margin-top: 20px;
+    border: 1px;
+    padding: 20px;
+    margin-block-end: 10px;
+}
+
+@media (max-width: 800px) {
+    body {
+        height: fit-content;
+    }
+
+    .btn {
+        position: fixed;
+    }
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 420px) {
+
+    body {
+        height: -webkit-fill-available;
+    }
+
+    .h_registration_event {
+        margin-top: 30px;
+        font-size: 26px;
+    }
+
+    .registrationForm {
+        width: 95%;
+        margin-top: 10px;
+        border: 1px;
+        padding: 10px;
+    }
+
+    form {
+        width: 95%;
+        margin-top: 75px;
+        margin: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="email"],
+    button {
+        padding: 7px;
+        font-size: 1em;
+    }
+
+    .registr {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    p a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+
+    p a:hover {
+        color: blue;
+        text-decoration: none;
+    }
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 375px) {
+
+    body {
+        height: fit-content;
+    }
+
+    .h_registration_event {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+    .EventForm {
+        margin: 0px;
+        margin-top: 20px;
+        border: 1px;
+        padding: 20px;
+        margin-block-end: 40px;
+    }
+
+    .btn {
+        position: relative;
+        margin-left: 25px;
+        margin-block-end: 40px;
+    }
+

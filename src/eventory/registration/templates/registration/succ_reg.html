@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block title %}Successful registration{% endblock %}
+
+{% block extra_css %}
+    <!-- Подключаем уникальный CSS для главной страницы -->
+    <link rel="stylesheet" href="{% static 'registration/css/succ_reg.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="centered-container">
+        <h1 class="registration-thank-you">Спасибо за регистрацию.</h1>
+    </div>
+    <a href="{% url 'home' %}"><button type="submit" class="btn">На главную</button></a>
+{% endblock %}

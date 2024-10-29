@@ -1,0 +1,54 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <!-- Подключаем уникальный CSS для главной страницы -->
+    <link rel="stylesheet" href="{% static 'my_calendar/css/my_calendar.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Календарь событий</h1>
+
+    <table id="mainTable">
+        <tr>
+            {% for month, details in events.items %}
+            <th>{{ month }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for month, events_list in events.items %}
+            <th>
+
+                {% for event in events_list %}
+                        <div class="event-card">
+                            <div class="event-name">{{ event.title }}</div>
+                            <div class="event-interest">{{ event.interest }}</div>
+                            <div class="event-organizer">организатор: {{ event.organizer }}</div>
+                            <div class="event-details"> <!-- Контейнер для даты и времени -->
+                                <div class="event-date">{{ event.date }}</div>
+                                <div class="event-time">{{ event.time }}</div>
+                            </div>
+                            {% csrf_token %}
+                            <button class="event-subscribe"
+                                    data-event-id="{{ event.event_id }}"
+                                    data-subscribed="{{ event.subscribe }}"
+                                    onclick="toggleSubscription(this)">
+                            </button>
+
+                        </div>
+
+                {% endfor %}
+            </th>
+            {% endfor %}
+        </tr>
+        <tr>
+
+        </tr>
+    </table>
+
+    <a href="{% url 'cabinet' %}"><button type="submit" class="btn">Назад</button></a>
+
+    <script src="{% static 'my_calendar/js/calendar.js' %}"></script>
+
+
+{% endblock %}

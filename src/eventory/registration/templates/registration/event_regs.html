@@ -1,0 +1,51 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Event registration{% endblock %}
+
+{% block extra_css %}
+    <!-- Подключаем уникальный CSS для главной страницы -->
+
+<!--    <link rel="stylesheet" href="{% static 'registration/css/user_regs.css' %}">-->
+    <link rel="stylesheet" href="{% static 'main/css/events.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/interest_list.css' %}">
+    <link rel="stylesheet" href="{% static 'registration/css/event_regs.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="h_registration_event">Регистрация события</h1>
+    <form class="EventForm" method="POST">
+        {% csrf_token %}
+
+        <label for="title">Название мероприятия:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="organizer">Организатор:</label>
+        <input type="text" id="organizer" name="organizer" required>
+
+        <label for="date">Дата:</label>
+        <input id="date" name="date" type="date" required /><br>
+
+        <label for="time">Время начала:</label>
+        <input id="time" name="time" type="time" value="00:00" required /><br>
+
+        <div class="dropdown">
+            <div class="selected-items"><label for="tag">Тематика мероприятия:</label></div>
+                <div class="dropdown-content">
+                    {% for interest in interest_list %}
+                        <label><input type="radio" name="tag" value="{{ interest.id }}">{{ interest.interest }}</label>
+                    {% endfor %}
+                </div>
+        </div>
+        {% if error_interest %}
+            <div class="error-message" style="color: red;">
+                {{ error_interest }}
+            </div>
+        {% endif %}
+
+        <button type="submit" class="btn_register">Создать</button>
+    </form>
+
+    <a href="{% url 'cabinet' %}"><button type="submit" class="btn">Назад</button></a>
+
+{% endblock %}

@@ -1,0 +1,374 @@
+/* Основные стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Стили для заголовка */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Стили для таблицы */
+table {
+    width: 95%;
+    border-collapse: separate; /* Отключаем collapse, чтобы применить закругленные углы */
+    border-spacing: 0; /* Убираем промежутки между ячейками */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Закругляем края таблицы */
+    overflow: hidden; /* Чтобы закругленные углы применились */
+}
+
+/* Стили для ячеек таблицы */
+th, td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    vertical-align: top; /* Установите это, если есть необходимость */
+}
+
+/* Стили для заголовков месяцев */
+th, td {
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    width: 8.33%; /* Устанавливаем одинаковую ширину для всех ячеек (12 столбцов) */
+    min-height: 92px;
+    min-width: 100px;
+}
+
+/* Стили для ячеек */
+td {
+    background-color: #f9f9f9;
+    font-size: 1em;
+    padding: 1px; /* Уменьшение отступов внутри ячеек */
+}
+
+/* Закругленные углы для первой и последней строки */
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+/* Наведение на ячейки */
+td:hover {
+    background-color: #E4E4E4;
+    cursor: pointer;
+}
+
+/* Стили для пустых ячеек */
+td:empty {
+    background-color: #f4f4f4;
+}
+
+/* Стиль карточек событий */
+.event-card {
+    margin: 0; /* Убираем внешние отступы */
+    position: relative;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 5px;
+    min-height: 120px;
+
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Название события */
+.event-name {
+    font-size: clamp(0.4em, 2vw, 0.7em); /* Автоматически подстраивается в диапазоне */
+    font-weight: bold;
+    margin-top: 15px; /* Отступ для того, чтобы тип мероприятия не закрывал текст */
+    color: #333;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Тип мероприятия (в левом верхнем углу) */
+.event-interest {
+    position: absolute;
+    text-align: center;
+    background-color: #8FD14F;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 0.4em;
+    font-weight: bold;
+}
+
+/* Контейнер для даты и времени */
+.event-details {
+    display: flex; /* Используем flexbox для горизонтального выравнивания */
+    justify-content: flex-start; /* Равномерное распределение между элементами */
+    margin-top: 2px; /* Отталкиваем контейнер вниз внутри карточки */
+    height: 20px; /* Задаем фиксированную высоту для контейнера */
+}
+
+/* Дата события (в левом нижнем углу) */
+.event-date {
+    align-self: flex-start; /* Выравнивание по началу вертикального направления */
+    font-size: 0.6em; /* Автоматически подстраивается в диапазоне */
+    color: black; /* Цвет текста черный */
+    font-weight: bold; /* Делаем текст жирным */
+    margin-top: auto; /* Отталкивает элемент вниз внутри flex-контейнера */
+    margin-right: 10px; /* Добавляем отступ справа для разделения с временем */
+}
+
+/* Время события (в правом нижнем углу) */
+.event-time {
+    font-size: clamp(0.5em, 1vw, 0.6em); /* Автоматически подстраивается в диапазоне */
+    color: black; /* Цвет текста черный */
+    font-weight: bold; /* Делаем текст жирным */
+    margin-top: auto; /* Это поможет вытолкнуть время вправо */
+}
+
+/* Организатор мероприятия */
+.event-organizer {
+    font-size: 0.6em; /* Устанавливаем размер шрифта меньше, чем у даты и времени */
+    font-style: italic; /* Делаем текст курсивом */
+    color: #555; /* Цвет текста (можно изменить на желаемый) */
+    margin-bottom: 1px; /* Отступ снизу, чтобы отделить от даты и времени */
+    text-align: left;
+}
+
+/* Базовые стили кнопки */
+.event-subscribe {
+    border: none; /* Убираем стандартную рамку */
+    padding: 3px 3px; /* Отступы внутри кнопки */
+    text-align: center;
+    cursor: pointer; /* Указатель при наведении */
+    font-size: 0.6em; /* Размер шрифта кнопки */
+    font-weight: bold; /* Жирный текст */
+    margin-top: 10px; /* Отступ сверху для отделения от других элементов */
+    border-radius: 25px; /* Увеличиваем закругление кнопки */
+}
+
+/* Стиль для отписки (пепельный полупрозрачный) */
+.event-subscribe.unsubscribed {
+    background-color: #BFBFBF; /* Пепельный цвет */
+    color: white; /* Цвет текста */
+}
+
+/* Стиль для подписки (салатовый) */
+.event-subscribe.subscribed {
+    background-color: #8FD14F; /* Салатовый цвет */
+    color: white; /* Цвет текста */
+}
+
+/* Эффект при наведении */
+.event-subscribe:hover {
+    opacity: 0.9; /* Немного уменьшаем прозрачность при наведении */
+}
+
+/* Эффект при нажатии */
+.event-subscribe:active {
+    transform: scale(0.98); /* Немного уменьшаем кнопку при нажатии */
+}
+
+/* Медиазапросы для ноунбуков */
+@media (max-width: 1800px) {
+    /* Стиль карточек событий */
+    .event-card {
+        margin: 0; /* Убираем внешние отступы */
+        position: relative;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 5px;
+        min-height: 115px;
+
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Название события */
+    .event-name {
+        font-size: 0.6em; /* Автоматически подстраивается в диапазоне */
+        font-weight: bold;
+        margin-top: 15px; /* Отступ для того, чтобы тип мероприятия не закрывал текст */
+        color: #333;
+        text-align: left;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden; /* Скрывает лишний текст */
+    }
+
+    /* Контейнер для даты и времени */
+    .event-details {
+        display: flex; /* Используем flexbox для горизонтального выравнивания */
+        justify-content: flex-start; /* Равномерное распределение между элементами */
+        margin-top: 0px; /* Отталкиваем контейнер вниз внутри карточки */
+        height: 5px; /* Задаем фиксированную высоту для контейнера */
+    }
+
+    /* Дата события (в левом нижнем углу) */
+    .event-date {
+        align-self: flex-start; /* Выравнивание по началу вертикального направления */
+        font-size: 0.5em; /* Автоматически подстраивается в диапазоне */
+        color: black; /* Цвет текста черный */
+        font-weight: bold; /* Делаем текст жирным */
+        margin-top: auto; /* Отталкивает элемент вниз внутри flex-контейнера */
+        margin-right: 5px; /* Добавляем отступ справа для разделения с временем */
+        white-space: nowrap; /* Запрещаем перенос строк */
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    /* Время события (в правом нижнем углу) */
+    .event-time {
+        font-size: 0.5em; /* Автоматически подстраивается в диапазоне */
+        color: black; /* Цвет текста черный */
+        font-weight: bold; /* Делаем текст жирным */
+        margin-top: auto; /* Это поможет вытолкнуть время вправо */
+    }
+
+    /* Организатор мероприятия */
+    .event-organizer {
+        font-size: 0.45em; /* Устанавливаем размер шрифта меньше, чем у даты и времени */
+        font-style: italic; /* Делаем текст курсивом */
+        color: #555; /* Цвет текста (можно изменить на желаемый) */
+        margin-bottom: auto; /* Отступ снизу, чтобы отделить от даты и времени */
+        text-align: left;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    /* Базовые стили кнопки */
+    .event-subscribe {
+        border: none; /* Убираем стандартную рамку */
+        padding: 3px 3px; /* Отступы внутри кнопки */
+        text-align: center;
+        cursor: pointer; /* Указатель при наведении */
+        font-size: 0.6em; /* Размер шрифта кнопки */
+        font-weight: bold; /* Жирный текст */
+        margin-top: 7px; /* Отступ сверху для отделения от других элементов */
+        border-radius: 25px; /* Увеличиваем закругление кнопки */
+    }
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 400px) {
+    body {
+        margin: 1px;
+        display: block; /* Вместо flex устанавливаем block */
+        background-position: left;
+    }
+
+    .table-container {
+        overflow-x: auto; /* Позволяет горизонтальную прокрутку */
+    }
+    /* Стили для заголовков месяцев */
+    th, td {
+        font-size: 0.5em; /* Автоматически подстраивается в диапазоне */
+        padding: 1px;
+    }
+
+    /* Стиль карточек событий */
+    .event-card {
+        margin: 0; /* Убираем внешние отступы */
+        position: relative;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 5px;
+        min-height: 92px;
+        min-width: 78px;
+
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Название события */
+    .event-name {
+        font-size: 0.5em; /* Автоматически подстраивается в диапазоне */
+        font-weight: bold;
+        margin-top: 15px; /* Отступ для того, чтобы тип мероприятия не закрывал текст */
+        color: #333;
+        text-align: left;
+        overflow: hidden; /* Скрываем всё, что выходит за пределы контейнера */
+	    text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    /* Контейнер для даты и времени */
+    .event-details {
+        display: flex; /* Используем flexbox для горизонтального выравнивания */
+        justify-content: flex-start; /* Равномерное распределение между элементами */
+        margin-top: 0px; /* Отталкиваем контейнер вниз внутри карточки */
+        height: 5px; /* Задаем фиксированную высоту для контейнера */
+    }
+
+    /* Дата события (в левом нижнем углу) */
+    .event-date {
+        align-self: flex-start; /* Выравнивание по началу вертикального направления */
+        font-size: 0.3em; /* Автоматически подстраивается в диапазоне */
+        color: black; /* Цвет текста черный */
+        font-weight: bold; /* Делаем текст жирным */
+        margin-top: auto; /* Отталкивает элемент вниз внутри flex-контейнера */
+        margin-right: 5px; /* Добавляем отступ справа для разделения с временем */
+    }
+
+    /* Время события (в правом нижнем углу) */
+    .event-time {
+        font-size: 0.3em; /* Автоматически подстраивается в диапазоне */
+        color: black; /* Цвет текста черный */
+        font-weight: bold; /* Делаем текст жирным */
+        margin-top: auto; /* Это поможет вытолкнуть время вправо */
+    }
+
+    /* Организатор мероприятия */
+    .event-organizer {
+        font-size: 0.2em; /* Устанавливаем размер шрифта меньше, чем у даты и времени */
+        font-style: italic; /* Делаем текст курсивом */
+        color: #555; /* Цвет текста (можно изменить на желаемый) */
+        margin-bottom: auto; /* Отступ снизу, чтобы отделить от даты и времени */
+        text-align: left;
+        overflow: hidden; /* Скрываем всё, что выходит за пределы контейнера */
+	    text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    /* Базовые стили кнопки */
+    .event-subscribe {
+        border: none; /* Убираем стандартную рамку */
+        padding: 3px 3px; /* Отступы внутри кнопки */
+        text-align: center;
+        cursor: pointer; /* Указатель при наведении */
+        font-size: 0.4em; /* Размер шрифта кнопки */
+        font-weight: bold; /* Жирный текст */
+        margin-top: 7px; /* Отступ сверху для отделения от других элементов */
+        border-radius: 25px; /* Увеличиваем закругление кнопки */
+    }
+}

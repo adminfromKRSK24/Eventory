@@ -1,0 +1,52 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Cabinet{% endblock %}
+{% load static %}
+
+{% block extra_css %}
+    <!-- Подключаем уникальный CSS для главной страницы -->
+    <link rel="stylesheet" href="{% static 'cabinet/css/cabinet.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="h_calendar">Личный кабинет</h1>
+    <div class="container">
+        <div class="user_profile">
+            <p><strong>Имя: </strong></p>
+            <label>{{ user.first_name }}</label>
+            <p><strong>Фамилия: </strong></p>
+            <label>{{ user.last_name }}</label>
+            <p><strong>Телефон: </strong></p>
+            <label>{{ user.phone }}</label>
+            <p><strong>Почта: </strong></p>
+            <label>{{ user.email }}</label>
+            <p><strong>Интересы: </strong></p>
+            <label>
+                <ul class="user_profile_ul">
+                        {% for interest in user.interests %}
+                            <li>{{ interest }}</li>
+                        {% endfor %}
+                </ul>
+            </label>
+            <div class="buttons">
+                <div>
+                    <p class="p_calendar">Перейти в календарь мероприятий</p>
+                    <a href="{% url 'my_calendar' %}"><button type="submit" class="btn_calendar">Календарь</button></a>
+                </div>
+                <div>
+                    <p>Создать мероприятие</p>
+                    <a href="{% url 'event_registration' %}"><button type="submit" class="btn_create_event">Создать</button></a>
+                </div>
+                <div>
+                    <p>Изменить личные данные</p>
+                    <a href="{% url 'change_data' %}"><button type="submit" class="btn_change_data">Изменить </button></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <a href="{% url 'logout' %}"><button type="submit" class="btn">На главную</button></a>
+
+{% endblock %}

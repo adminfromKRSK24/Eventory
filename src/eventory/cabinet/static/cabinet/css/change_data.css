@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+form {
+    background-color: transparent;
+    padding: 20px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.edit_data {
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+.registrationForm {
+    margin-top: 10px;
+    border: 1px;
+    padding: 20px;
+}
+
+.edit_data {
+    margin-top: 20px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 400px) {
+
+    body {
+        height: auto; /* Позволяет прокрутку вниз */
+    }
+
+    .edit_data {
+        font-size: 22px;
+    }
+
+    .registrationForm {
+        width: 95%;
+        margin-top: 10px;
+        border: 1px;
+        padding: 10px;
+    }
+
+    form {
+        width: 95%;
+        margin-top: 75px;
+        margin: 20px;
+    }
+
+    .btn {
+        position: relative;
+        margin-top: 10px;
+        margin-left: 25px;
+        margin-block-end: 10px;
+        min-width: -webkit-fill-available;
+    }
+}
+

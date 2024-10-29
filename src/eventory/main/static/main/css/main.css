@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+form {
+    background-color: transparent;
+    padding: 20px;
+    margin: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.HomeForm {
+    margin-top: 20px;
+}
+
+h1 {
+    margin-top: 300px;
+    text-align: center;
+    color: #333;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="password_repeat"],
+input[type="tel"],
+input[type="email"]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 17px;
+}
+
+.checkbox-container {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+}
+
+.btn_register {
+    margin-top: 30px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.registr {
+    margin-top: 20px;
+    text-align: center;
+}
+
+p a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+p a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.about {
+    text-align: center; /* Выравнивание текста по центру */
+    max-width: 800px; /* Максимальная ширина секции */
+    padding: 20px; /* Отступы внутри секции */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для секции */
+    margin-top: 50px;
+    overflow-y: auto;
+}
+
+.about h2 {
+    color: #343a40; /* Цвет подзаголовков */
+    margin: 15px 0; /* Отступы сверху и снизу */
+}
+
+.about p {
+    color: #495057; /* Цвет параграфов */
+    line-height: 1.5; /* Высота строки */
+    margin: 10px 0; /* Отступы сверху и снизу */
+}
+
+.about ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы у списка */
+    color: #495057; /* Цвет списка */
+}
+
+.about li {
+    margin: 10px 0; /* Отступы для элементов списка */
+}
+
+.registrationForm {
+    margin-top: 150px;
+}
+
+.error-message {
+    color: red;
+}
+
+.error-message-change {
+    color: red;
+    margin-top: 20px;
+}
+
+.success-message-change {
+    color: green;
+    margin-top: 20px;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2em;
+        margin-top: 100px;
+    }
+
+    form {
+        width: 75%;
+        margin-top: 75px;
+    }
+
+    .HomeForm {
+        margin-top: 70px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .registr {
+        margin-top: 20px;
+    }
+
+    .btn {
+        width: 90%;
+    }
+
+    .about {
+        max-height: calc(100vh - 100px)
+        width: 95%;
+        margin-bottom: 60px;
+        box-shadow: none;
+        border-radius: 0;
+        margin-top: 10px;
+    }
+
+    .about .btn {
+        margin: 0 auto; /* Центрируем кнопку по горизонтали */
+        position: static; /* Убираем фиксированное позиционирование */
+        margin-top: auto; /* Отодвигаем кнопку вниз */
+    }
+}
+
+

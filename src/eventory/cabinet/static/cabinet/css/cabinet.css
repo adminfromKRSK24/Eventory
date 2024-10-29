@@ -1,0 +1,442 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: env(); /* Фон остается на месте при прокрутке */
+    min-height: 100vh; /* Минимальная высота на весь экран */
+    overflow-x: hidden; /* Отключение горизонтальной прокрутки */
+    margin-block-end: 10px;
+}
+
+.h_calendar {
+    margin-top: 20px;
+}
+
+.container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+}
+
+.user_profile {
+    display: flex; /* Включаем flexbox */
+    flex-direction: column; /* Выстраиваем элементы в колонку */
+    align-items: center; /* Центрируем по горизонтали */
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.user_profile label {
+    text-align: center;
+    display: block;
+    padding: 8px;
+    border: 1px solid #fff;
+    width: 90%;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.user_profile p {
+    width: 90%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.user_profile_ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    width: 100%; /* Задаем ширину 100% для списка */
+}
+
+.user_profile_ul li{
+    width: 100%; /* Задаем ширину 100% для элементов списка */
+    padding: 8px; /* Добавляем отступы для элементов списка */
+    text-align: center; /* Центрируем текст внутри элемента списка */
+    border: 1px solid #ccc; /* Граница для элементов списка, по желанию */
+    border-radius: 10px; /* Закругление углов для элементов списка */
+    box-sizing: border-box; /* Учитываем отступы и границы в размере */
+    margin-top: 5px; /* Отступ между элементами списка */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    width: 90%;
+}
+
+.buttons div {
+    display: flex; /* Включаем flexbox для внутренних div */
+    flex-direction: column; /* Элементы внутри div располагаем в колонку */
+    justify-content: space-between; /* Распределяем элементы по высоте */
+    flex: 0 0 33%; /* Устанавливаем ширину каждого блока на 33% */
+    box-sizing: border-box; /* Учитываем отступы и границы в общей ширине */
+}
+
+.buttons div a button {
+    width: 100%; /* Устанавливаем ширину кнопок на 100%, чтобы они занимали всю ширину ссылки */
+    margin-top: 10px;
+}
+
+.buttons div p {
+    flex-grow: 1;
+    width: 100%;
+    padding: 8px; /* Добавляем отступы для элементов списка */
+    text-align: center; /* Центрируем текст внутри элемента списка */
+    border: 1px solid #ccc; /* Граница для элементов списка, по желанию */
+    border-radius: 10px; /* Закругление углов для элементов списка */
+    box-sizing: border-box; /* Учитываем отступы и границы в размере */
+    margin-top: 5px; /* Отступ между элементами списка */
+}
+
+.btn_calendar {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.btn_change_data {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+@media (max-width: 800px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: content-box;
+    }
+
+    body {
+        height: auto; /* Позволяет прокрутку вниз */
+        width: min-content;
+        min-width: -webkit-fill-available;
+        background-size: var(); /* Масштабирует фон, чтобы он полностью был виден */
+    }
+
+    .h_calendar {
+        margin-top: 20px;
+    }
+
+    .container {
+        padding-top: 0px;
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+    }
+
+    .user_profile p {
+        width: 90%;
+        box-sizing: border-box;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .user_profile_ul {
+        list-style-type: none; /* Убираем маркеры списка */
+        width: 100%; /* Задаем ширину 100% для списка */
+    }
+
+    .user_profile_ul li{
+        width: 100%; /* Задаем ширину 100% для элементов списка */
+        padding: 8px; /* Добавляем отступы для элементов списка */
+        text-align: center; /* Центрируем текст внутри элемента списка */
+        border: 1px solid #ccc; /* Граница для элементов списка, по желанию */
+        border-radius: 10px; /* Закругление углов для элементов списка */
+        box-sizing: border-box; /* Учитываем отступы и границы в размере */
+        margin-top: 5px; /* Отступ между элементами списка */
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5px;
+        width: 90%;
+    }
+
+    .buttons div {
+        display: flex; /* Включаем flexbox для внутренних div */
+        flex-direction: column; /* Элементы внутри div располагаем в колонку */
+        justify-content: space-between; /* Распределяем элементы по высоте */
+        flex: 0 0 33%; /* Устанавливаем ширину каждого блока на 33% */
+        box-sizing: border-box; /* Учитываем отступы и границы в общей ширине */
+    }
+
+    .buttons div a button {
+        width: 90%; /* Устанавливаем ширину кнопок на 100%, чтобы они занимали всю ширину ссылки */
+        margin-top: 10px;
+    }
+
+    .buttons div p {
+        font-size: 14px;
+        position: left;
+        flex-grow: 1;
+        width: 20%;
+        padding: 8px; /* Добавляем отступы для элементов списка */
+        text-align: left; /* Центрируем текст внутри элемента списка */
+        border: 1px solid #ccc; /* Граница для элементов списка, по желанию */
+        border-radius: 10px; /* Закругление углов для элементов списка */
+        box-sizing: border-box; /* Учитываем отступы и границы в размере */
+        margin-top: 5px; /* Отступ между элементами списка */
+        width: 20%;
+        position: revert;
+        min-width: fit-content;
+    }
+
+    .p_calendar {
+        size-font: 1px;
+        width: 20%;
+    }
+
+    .btn_calendar {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        size-font: 14px;
+        padding: 5px;
+        position: left;
+    }
+
+
+
+    .btn_create_event {
+        size-font: 14px;
+        padding: 5px;
+        position: left;
+    }
+
+    .btn_change_data {
+        size-font: 14px;
+        padding: 5px;
+        position: left;
+    }
+
+    .btn {
+        position: relative;
+        margin-top: 30px;
+        margin-left: 35px;
+        margin-block-end: 20px;
+        min-width: -webkit-fill-available;
+    }
+}
+
+@media (max-width: 400px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: content-box;
+    }
+
+    body {
+        height: auto; /* Позволяет прокрутку вниз */
+        width: min-content;
+        min-width: -webkit-fill-available;
+        background-size: var(); /* Масштабирует фон, чтобы он полностью был виден */
+    }
+
+    .h_calendar {
+        margin-top: 20px;
+    }
+
+    .container {
+        padding-top: 0px;
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+    }
+
+    .user_profile {
+        display: flex; /* Включаем flexbox */
+        flex-direction: column; /* Выстраиваем элементы в колонку */
+        align-items: center; /* Центрируем по горизонтали */
+        background-color: transparent;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        padding-bottom: 15px;
+    }
+
+    .user_profile label {
+        text-align: center;
+        display: block;
+        padding: 8px;
+        border: 1px solid #fff;
+        width: 90%;
+        border-radius: 20px;
+        box-sizing: border-box;
+    }
+
+    .user_profile p {
+        width: 90%;
+        box-sizing: border-box;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .user_profile_ul {
+        list-style-type: none; /* Убираем маркеры списка */
+        width: 100%; /* Задаем ширину 100% для списка */
+    }
+
+    .user_profile_ul li{
+        width: 100%; /* Задаем ширину 100% для элементов списка */
+        padding: 8px; /* Добавляем отступы для элементов списка */
+        text-align: center; /* Центрируем текст внутри элемента списка */
+        border: 1px solid #ccc; /* Граница для элементов списка, по желанию */
+        border-radius: 10px; /* Закругление углов для элементов списка */
+        box-sizing: border-box; /* Учитываем отступы и границы в размере */
+        margin-top: 5px; /* Отступ между элементами списка */
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5px;
+        width: 90%;
+    }
+
+    .buttons div {
+        display: flex; /* Включаем flexbox для внутренних div */
+        flex-direction: column; /* Элементы внутри div располагаем в колонку */
+        justify-content: space-between; /* Распределяем элементы по высоте */
+        flex: 0 0 33%; /* Устанавливаем ширину каждого блока на 33% */
+        box-sizing: border-box; /* Учитываем отступы и границы в общей ширине */
+    }
+
+    .buttons div a button {
+        width: 90%; /* Устанавливаем ширину кнопок на 100%, чтобы они занимали всю ширину ссылки */
+        margin-top: 10px;
+    }
+
+    .buttons div p {
+        font-size: 14px;
+        position: left;
+        flex-grow: 1;
+        width: 20%;
+        padding: 8px; /* Добавляем отступы для элементов списка */
+        text-align: left; /* Центрируем текст внутри элемента списка */
+        border: 1px solid #ccc; /* Граница для элементов списка, по желанию */
+        border-radius: 10px; /* Закругление углов для элементов списка */
+        box-sizing: border-box; /* Учитываем отступы и границы в размере */
+        margin-top: 5px; /* Отступ между элементами списка */
+        width: 20%;
+        position: revert;
+        min-width: fit-content;
+    }
+
+    .p_calendar {
+        size-font: 1px;
+        width: 20%;
+    }
+
+    .btn_calendar {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        size-font: 14px;
+        padding: 5px;
+        position: left;
+    }
+
+
+
+    .btn_create_event {
+        size-font: 14px;
+        padding: 5px;
+        position: left;
+    }
+
+    .btn_change_data {
+        size-font: 14px;
+        padding: 5px;
+        position: left;
+    }
+
+    .btn_change_data {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .btn {
+        position: relative;
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-block-end: 20px;
+        min-width: -webkit-fill-available;
+    }
+}
+
+@media (max-width: 375px) {
+    body {
+        height: auto; /* Позволяет прокрутку вниз */
+        width: -webkit-fill-available;
+        min-width: -webkit-min-content;
+        background-size: var(); /* Масштабирует фон, чтобы он полностью был виден */
+    }
+
+    .buttons div p {
+        font-size: 10px;
+        position: left;
+        flex-grow: 1;
+        width: 20%;
+        padding: 8px; /* Добавляем отступы для элементов списка */
+        text-align: left; /* Центрируем текст внутри элемента списка */
+        border: 1px solid #ccc; /* Граница для элементов списка, по желанию */
+        border-radius: 10px; /* Закругление углов для элементов списка */
+        box-sizing: border-box; /* Учитываем отступы и границы в размере */
+        margin-top: 5px; /* Отступ между элементами списка */
+        width: 20%;
+        position: revert;
+        min-width: fit-content;
+    }
+
+    .h_calendar {
+        font-size: 24px;
+    }
+
+    .buttons div a {
+        width: 100%; /* Устанавливаем ширину кнопок на 100%, чтобы они занимали всю ширину ссылки */
+        margin-top: 3px;
+    }
+
+    * {
+        box-sizing: content-box;
+    }
+
+    .buttons div a button{
+        font-size: 12px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 5px;
+        width: 90%;
+    }
+
+    .btn {
+        position: relative;
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-block-end: 20px;
+        min-width: -webkit-fill-available;
+    }
+
+}
+
+
+
+
